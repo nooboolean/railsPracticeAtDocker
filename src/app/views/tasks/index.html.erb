@@ -1,0 +1,22 @@
+<h1>Tasks#index</h1>
+<%= link_to "新規登録", new_task_path, class: 'btn btn-primary' %>
+
+<% @tasks.each do |t| %>
+<ul>
+  <li>
+    名称：<%= link_to t.name, task_path(t)%>
+  </li>
+  <li>
+    登録日時：<%= t.created_at %>
+  </li>
+  <li>
+    <%= link_to "編集", edit_task_path(t), class: 'btn btn-primary mr-3' %>
+  </li>
+    <li>
+    <%= link_to "削除", t, method: :delete, data: { confirm: "タスク「#{t.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %>
+  </li>
+  <li>
+    ---------------
+  </li>
+</ul>
+<% end %>

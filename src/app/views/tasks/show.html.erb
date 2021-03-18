@@ -1,0 +1,33 @@
+<h1>Tasks#show</h1>
+<div class="nav justify-content-end">
+  <%= link_to "一覧", tasks_path, class: 'nav-link' %>
+</div>
+<ul>
+  <li>
+    ---------------
+  </li>
+  <li>
+    ID：<%= @task.id %>
+  </li>
+  <li>
+    名称：<%= @task.name %>
+  </li>
+  <li>
+    説明：<%= @task.description %>
+  </li>
+  <li>
+    登録日時：<%= @task.created_at %>
+  </li>
+  <li>
+    更新日時：<%= @task.updated_at %>
+  </li>
+  <li>
+    <%= link_to "編集", edit_task_path, class: 'btn btn-primary' %>
+  </li>
+  <li>
+    <%= link_to "削除", @task, method: :delete, data: { confirm: "タスク「#{@task.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %>
+  </li>
+  <li>
+    ---------------
+  </li>
+</ul>
