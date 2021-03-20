@@ -1,2 +1,32 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<h1>ユーザー一覧</h1>
+
+<%= link_to "会員登録", new_admin_user_path, class: 'btn butn_primary' %>
+
+<%= @users.each do |u| %>
+<ul>
+  <li>
+    名前：<%= link_to u.name, [:admin, u]%>
+  </li>
+  <li>
+    メールアドレス：<%= u.email %>
+  </li>
+  <li>
+    管理者権限の有無：<%= u.admin? ? 'あり' : 'なし' %>
+  </li>
+  <li>
+    登録日時：<%= u.created_at %>
+  </li>
+  <li>
+    更新日時：<%= u.updated_at %>
+  </li>
+  <li>
+    <%= link_to "編集", edit_admin_user_path(u), class: 'btn btn-primary mr-3' %>
+  </li>
+    <li>
+    <%= link_to "削除", [:admin, u], method: :delete, data: { confirm: "ユーザー「#{u.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %>
+  </li>
+  <li>
+    ---------------
+  </li>
+</ul>
+<% end %>
