@@ -13,7 +13,7 @@
     名称：<%= @task.name %>
   </li>
   <li>
-    説明：<%= @task.description %>
+    説明：<%= auto_link(simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: 'div')) %>
   </li>
   <li>
     登録日時：<%= @task.created_at %>
