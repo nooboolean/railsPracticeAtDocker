@@ -1,0 +1,12 @@
+<h1>登録内容の確認</h1>
+
+<%= form_with model: @task, local: true do |f| %>
+  <li>名称</li>
+  <li><%= @task.name %></li>
+  <%= f.hidden_field :name %>
+  <li>説明</li>
+  <li><%= simple_format(@task.description)) %></li>
+  <%= f.hidden_field :description %>
+  <li><%= f.submit "戻る", name: 'back', class: 'btn btn-secondary mr-3' %></li>
+  <li><%= f.submit "登録", , class: 'btn btn-primary' %></li>
+<% end %>
