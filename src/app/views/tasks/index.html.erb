@@ -1,6 +1,11 @@
 <h1>Tasks#index</h1>
 <%= link_to "新規登録", new_task_path, class: 'btn btn-primary' %>
 
+<%= search_form_for @q do |f| %>
+<%= f.label :name_cont, '名称' %>
+<%= f.search_field :name_cont %>
+<%= f.submit %>
+<% end %>
 <% @tasks.each do |t| %>
 <ul>
   <li>
