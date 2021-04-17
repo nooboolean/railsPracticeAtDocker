@@ -2,6 +2,18 @@ class TasksController < ApplicationController
   def index
     @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result(distinct: true)
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        send_data @tasks.generate_csv, filename: "tasks-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"
+      }
+    end
+  end
+
+  def csv_import
+    current_user.tasks.csv_import(params[:file])
+    redirect_to tasks_url, notice: "タスクを追加しました"
   end
 
   def show
