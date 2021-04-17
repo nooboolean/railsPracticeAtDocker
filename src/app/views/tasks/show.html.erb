@@ -7,19 +7,28 @@
     ---------------
   </li>
   <li>
-    ID：<%= @task.id %>
+    <%= Task.human_attribute_name(:id) %>
+    <%= @task.id %>
   </li>
   <li>
-    名称：<%= @task.name %>
+    <%= Task.human_attribute_name(:name) %>
+    <%= @task.name %>
   </li>
   <li>
-    説明：<%= auto_link(simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: 'div')) %>
+    <%= Task.human_attribute_name(:description) %>
+    <%= auto_link(simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: 'div')) %>
   </li>
   <li>
-    登録日時：<%= @task.created_at %>
+    <%= Task.human_attribute_name(:image) %>
+    <%= image_tag @task.image if @task.image.attached? %>
   </li>
   <li>
-    更新日時：<%= @task.updated_at %>
+    <%= Task.human_attribute_name(:created_at) %>
+    <%= @task.created_at %>
+  </li>
+  <li>
+    <%= Task.human_attribute_name(:updated_at) %>
+    <%= @task.updated_at %>
   </li>
   <li>
     <%= link_to "編集", edit_task_path, class: 'btn btn-primary' %>
