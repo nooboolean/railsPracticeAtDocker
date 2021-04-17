@@ -1,11 +1,18 @@
 <h1>Tasks#index</h1>
-<%= link_to "新規登録", new_task_path, class: 'btn btn-primary' %>
 
 <%= search_form_for @q do |f| %>
 <%= sort_link(@q, :name, default_order: :asc) %>
 <%= f.search_field :name_cont %>
 <%= f.submit %>
 <% end %>
+
+<%= link_to "新規登録", new_task_path, class: 'btn btn-primary' %>
+
+<div class='mb-3'>
+<%= paginate @tasks %>
+<%= page_entries_info @tasks %>
+</div>
+
 <% @tasks.each do |t| %>
 <ul>
   <li>
