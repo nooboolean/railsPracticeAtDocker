@@ -72,3 +72,5 @@ gem 'ransack'
 gem 'mailcatcher'
 
 gem 'kaminari'
+
+gem 'sidekiq', '~> 5.0'
